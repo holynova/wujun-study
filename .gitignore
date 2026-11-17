@@ -8,3 +8,6 @@ logs/
 .DS_Store
 __pycache__/
 *.pyc
+
+.wrangler/
+.dev.vars*

@@ -24,3 +24,5 @@ for(const file of fs.readdirSync('public/topics'))if(file.endsWith('.json')&&!li
 fs.writeFileSync('src/data/index.json',JSON.stringify({planned:42,topics:index}));
 fs.writeFileSync('public/search.json',JSON.stringify(search));
 console.log(`Prepared ${index.length}/42 topic articles`);
+
+fs.writeFileSync('src/data/version.json',JSON.stringify({label:'v'+JSON.parse(fs.readFileSync('package.json','utf8')).version})+'\n');

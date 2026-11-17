@@ -1,15 +1,18 @@
 {
   "name": "wujun-study",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "node scripts/prepare_chunks.mjs && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node scripts/verify.mjs"
+    "test": "node scripts/verify.mjs",
+    "deploy:check": "wrangler deploy --dry-run --config wrangler.jsonc",
+    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc"
   },
   "devDependencies": {
-    "vite": "6.4.6"
+    "vite": "6.4.6",
+    "wrangler": "4.163.0"
   }
 }
