@@ -12,7 +12,7 @@ Includes 17 reviewed Chinese clear-line comic slide decks, exactly 15 pages each
 
 ## 在线体验 / Live Demo
 
-- [Cloudflare Demo](https://wujun-study.xiaosang.cc/)
+- [Cloudflare Demo](https://xiaosang.cc/wujun-study/)
 - [GitHub Repo](https://github.com/holynova/wujun-study)
 - [原课来源 / Course sources](https://github.com/holynova/my-data)
 
@@ -34,9 +34,9 @@ npm run deploy:check
 npm run deploy
 ```
 
-Cloudflare Workers · `wujun-study.xiaosang.cc` · `main`
+Cloudflare Workers (`xiaosang-portfolio`) · `xiaosang.cc/wujun-study/` · `main`
 
-源码与部署配置使用同一主分支，在本地手动发布。原始课程、账号与生产状态不进入公开产物。网站使用统一 Umami 统计。
+源码使用 main，随作品集 master 手动部署到共享 Worker；部署前需同步作品集的挂载提交。原始课程、账号与生产状态不进入公开产物。网站使用统一 Umami 统计。
 
 Source and deployment configuration share the main branch. Deploy manually with Wrangler. Raw courses, credentials and production state remain local. Includes Umami analytics.
 

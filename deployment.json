@@ -1,0 +1,8 @@
+{
+  "worker": "xiaosang-portfolio",
+  "url": "https://xiaosang.cc/wujun-study/",
+  "base": "/wujun-study/",
+  "portfolioRepository": "https://github.com/holynova/holynova.github.io",
+  "portfolioBranch": "master",
+  "mountManifest": "data/mounted-projects.json"
+}

@@ -2,14 +2,16 @@ import './styles/base.css';
 import './styles/proto-c.css';
 import './styles/wujun.css';
 import data from './data/index.json';
-import slides from './data/slides.json';
+import rawSlides from './data/slides.json';
+const assetUrl=path=>import.meta.env.BASE_URL+path.replace(/^\//,'');
+const slides=Object.fromEntries(Object.entries(rawSlides).map(([id,s])=>[id,{...s,prefix:assetUrl(s.prefix),pdfUrl:assetUrl(s.pdfUrl)}]));
 import {shell,directory,article,esc} from './render.js';
-const topics=data.topics;const byCode=new Map(topics.map(t=>[t.code,t]));const cache=new Map();
+const topics=data.topics.map(t=>({...t,url:assetUrl(t.url)}));const byCode=new Map(topics.map(t=>[t.code,t]));const cache=new Map();
 const app=document.querySelector('#app'); document.body.dataset.proto='c';app.innerHTML=shell(topics,data.planned,slides);
 const $=s=>document.querySelector(s);let category='全部',course='',query='',active='',filtered=topics,searchData=null,searchPending=false,loadToken=0;
 let viewerTopic=null,page=0,renderToken=0,returnFocus=null,touchX=0;
 const viewer=$('#viewer');
-async function loadSearch(){if(searchPending)return;searchPending=true;try{const r=await fetch('/search.json');if(!r.ok)throw Error();searchData=await r.json();filter();}catch{$('#count').textContent='正文搜索暂不可用，仍可搜索标题与概念';}finally{searchPending=false;}}
+async function loadSearch(){if(searchPending)return;searchPending=true;try{const r=await fetch(assetUrl('/search.json'));if(!r.ok)throw Error();searchData=await r.json();filter();}catch{$('#count').textContent='正文搜索暂不可用，仍可搜索标题与概念';}finally{searchPending=false;}}
 function filter(){const q=query.trim().toLocaleLowerCase();filtered=topics.filter(t=>(category==='全部'||t.category===category)&&(!course||t.courses.includes(course))&&(!q||[t.title,t.question,...t.concepts,...t.courses,searchData?.find(s=>s.code===t.code)?.text??''].join(' ').toLocaleLowerCase().includes(q)));$('#directory').innerHTML=directory(filtered,active,slides);$('#count').textContent=`${filtered.length} 个专题 · 红点表示图解已完成`;$('#clear').hidden=!query;}
 async function select(code,{scroll=false,history=true}={}){const t=byCode.get(code);if(!t)return;active=code;filter();if(history)window.history.replaceState(null,'',`#topic-${code}`);document.title=`${t.title} · 吴军专题学习`;const token=++loadToken;$('#stage').innerHTML='<p class="empty-state">正在打开专题…</p>';try{if(!cache.has(code)){const r=await fetch(t.url);if(!r.ok)throw Error();cache.set(code,await r.json());}if(token!==loadToken)return;const index=topics.findIndex(x=>x.code===code);$('#stage').innerHTML=article(cache.get(code),slides[t.id],topics[index-1],topics[index+1]);if(scroll){$('#stage').scrollIntoView({block:'start',behavior:'instant'});$('#stage').focus({preventScroll:true});}}catch{if(token===loadToken)$('#stage').innerHTML=`<div class="empty-state"><p>专题暂时未能加载</p><button class="stage-nav-btn" data-topic="${esc(code)}">重新加载</button></div>`;}}
 $('#search').addEventListener('input',e=>{query=e.target.value;filter();if(query&&!searchData)loadSearch();});$('#clear').onclick=()=>{query='';$('#search').value='';filter();$('#search').focus();};$('#course').onchange=e=>{course=e.target.value;filter();};

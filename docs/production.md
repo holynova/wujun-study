@@ -15,7 +15,7 @@ npm test
 npm run dev
 ```
 
-网站通过 Sites 私有部署。身份与静态目录在 `.openai/hosting.json` 中声明。部署只包含 `dist/`；源码仓库中的 `src/data/topics/` 保存脱敏后的精读内容，支持干净检出重建。
+正式网站挂载在 xiaosang.cc/wujun-study/，由作品集 xiaosang-portfolio Worker 统一部署；原 Sites 私有预览保留。部署只包含 `dist/`；源码仓库中的 `src/data/topics/` 保存脱敏后的精读内容，支持干净检出重建。
 
 ## 内容与来源
 
