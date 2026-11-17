@@ -17,7 +17,7 @@ class ProductionGuardTests(unittest.TestCase):
  def test_other_project_capacity_blocks_submission(self):
   s={'topics':{},'accounts':{}}
   t={'code':'F01','outline':[{'page':i} for i in range(1,16)]}
-  with patch.object(p,'sibling',return_value=(8,0,0)),patch.object(p,'ensure_source',side_effect=AssertionError('capacity must be checked before upload')):
+  with patch.object(p,'sibling',return_value=(10,0,0)),patch.object(p,'ensure_source',side_effect=AssertionError('capacity must be checked before upload')):
    self.assertFalse(p.submit(s,t))
  def test_cooling_account_blocks_mutation(self):
   s={'topics':{},'accounts':{'default':{'cooldown_until':p.now()+1000}}}

@@ -5,6 +5,10 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 with (ROOT/'state/cycle.lock').open('w') as lock:
  try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
  except BlockingIOError:raise SystemExit('Pause production before building or publishing')
+ s=json.loads((ROOT/'state/production.json').read_text());plan=json.loads((ROOT/'src/data/plan.json').read_text())
+ for path in (ROOT/'public/slides').glob('ep-*.pdf'):
+  code=plan['roadmap'][int(path.stem.split('-')[1])-1][0]
+  if s['topics'].get(code,{}).get('status') not in {'reviewed','complete'}:raise SystemExit(code+': not accepted for publication')
  subprocess.run([sys.executable,str(ROOT/'scripts/build_slides.py')],check=True)
  slides=json.loads((ROOT/'src/data/slides.json').read_text());statefile=ROOT/'state/production.json';s=json.loads(statefile.read_text());plan=json.loads((ROOT/'src/data/plan.json').read_text())
  for i,(code,*_) in enumerate(plan['roadmap'],1):

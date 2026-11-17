@@ -1,1 +1,37 @@
-{}
+{
+  "2": {
+    "prefix": "/static/9ed3f238cbdd8f8e/",
+    "pdfUrl": "/slides/ep-2.pdf",
+    "pages": 15
+  },
+  "3": {
+    "prefix": "/static/89991ce3f22b6ac7/",
+    "pdfUrl": "/slides/ep-3.pdf",
+    "pages": 15
+  },
+  "4": {
+    "prefix": "/static/393dfcd62d44436b/",
+    "pdfUrl": "/slides/ep-4.pdf",
+    "pages": 15
+  },
+  "5": {
+    "prefix": "/static/816c6a864a5b7b6e/",
+    "pdfUrl": "/slides/ep-5.pdf",
+    "pages": 15
+  },
+  "8": {
+    "prefix": "/static/2bffe0351e3ee5f4/",
+    "pdfUrl": "/slides/ep-8.pdf",
+    "pages": 15
+  },
+  "11": {
+    "prefix": "/static/bb7db6dbaec2c7fd/",
+    "pdfUrl": "/slides/ep-11.pdf",
+    "pages": 15
+  },
+  "15": {
+    "prefix": "/static/2eefa3e7015e4b16/",
+    "pdfUrl": "/slides/ep-15.pdf",
+    "pages": 15
+  }
+}
