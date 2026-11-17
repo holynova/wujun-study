@@ -24,6 +24,11 @@
     "pdfUrl": "/slides/ep-5.pdf",
     "pages": 15
   },
+  "6": {
+    "prefix": "/static/27726e48a7c7cbd6/",
+    "pdfUrl": "/slides/ep-6.pdf",
+    "pages": 15
+  },
   "8": {
     "prefix": "/static/2bffe0351e3ee5f4/",
     "pdfUrl": "/slides/ep-8.pdf",
@@ -37,6 +42,46 @@
   "15": {
     "prefix": "/static/266c90048e7e16aa/",
     "pdfUrl": "/slides/ep-15.pdf",
+    "pages": 15
+  },
+  "21": {
+    "prefix": "/static/4b7fdf19ed9adeb2/",
+    "pdfUrl": "/slides/ep-21.pdf",
+    "pages": 15
+  },
+  "23": {
+    "prefix": "/static/5967c86db54c0ad7/",
+    "pdfUrl": "/slides/ep-23.pdf",
+    "pages": 15
+  },
+  "28": {
+    "prefix": "/static/42cb19a6adf7e556/",
+    "pdfUrl": "/slides/ep-28.pdf",
+    "pages": 15
+  },
+  "29": {
+    "prefix": "/static/670856174a82cad8/",
+    "pdfUrl": "/slides/ep-29.pdf",
+    "pages": 15
+  },
+  "35": {
+    "prefix": "/static/6ff31c9f35b4a0b2/",
+    "pdfUrl": "/slides/ep-35.pdf",
+    "pages": 15
+  },
+  "38": {
+    "prefix": "/static/8195954d8a4376d8/",
+    "pdfUrl": "/slides/ep-38.pdf",
+    "pages": 15
+  },
+  "39": {
+    "prefix": "/static/e434b496938aafb7/",
+    "pdfUrl": "/slides/ep-39.pdf",
+    "pages": 15
+  },
+  "40": {
+    "prefix": "/static/81614f88238c0401/",
+    "pdfUrl": "/slides/ep-40.pdf",
     "pages": 15
   }
 }

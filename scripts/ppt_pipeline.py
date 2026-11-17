@@ -8,6 +8,7 @@ FIRST=['F01','F02','F03','F04','F05','F06','C02','E01','D01','W02','T01','P02']
 ACTIVE={'queued','submitting'}
 STOP=False
 ONLY=set()
+MAX_IN_FLIGHT=8
 def request_stop(*_):
  global STOP
  STOP=True
@@ -118,7 +119,7 @@ def submit(s,t):
  today=dt.date.today().isoformat()
  if r['attempts'].get(today,0)>=3 or now()<r.get('next_attempt',0):return False
  other,_,cool=sibling(s,profile)
- if now()<cool or sum(x['status'] in ACTIVE and x.get('profile','default')==profile for x in s['topics'].values())+other>=10:return False
+ if now()<cool or sum(x['status'] in ACTIVE and x.get('profile','default')==profile for x in s['topics'].values())+other>=MAX_IN_FLIGHT:return False
  ensure_source(s,r,t)
  # Every fresh/retry submission reconciles against the source before writing.
  artifacts=[]
@@ -131,7 +132,7 @@ def submit(s,t):
  if live:r.update(status='queued',artifact_id=identifier(live[-1]),submitted_at=now()-1200);save(s);return True
  other,last,cool=sibling(s,profile)
  if now()<max(cool,account.get('cooldown_until',0),account.get('generation_cooldown_until',0),last+60,account.get('last_submit',0)+60):return False
- if sum(x['status'] in ACTIVE and x.get('profile','default')==profile for x in s['topics'].values())+other>=10:return False
+ if sum(x['status'] in ACTIVE and x.get('profile','default')==profile for x in s['topics'].values())+other>=MAX_IN_FLIGHT:return False
  r.update(status='submitting',submitted_at=now());account['last_submit']=now();r['attempts'][today]=r['attempts'].get(today,0)+1;save(s)
  try:raw=cli(s,['slides','create',r['notebook_id'],'--source-ids',r['source_id'],'--format','detailed_deck','--length','default','--language','zh-CN','--focus',focus(t),'--confirm','--json'],profile)
  except Exception as exc:
@@ -141,6 +142,7 @@ def submit(s,t):
   save(s);raise
  aid=identifier(raw)
  if not aid:raise RuntimeError('Slide creation unresolved: response has no artifact ID')
+ account['generation_rate_rejections']=[]
  r.update(status='queued',artifact_id=aid,submission_rejected=False);save(s);log(f'{code}: submitted {aid}');return True
 
 def fetch_artifacts(s,nb,profile):
@@ -186,6 +188,7 @@ def step():
  content=[json.loads(p.read_text()) for p in (ROOT/'work/content').glob('*.json')]
  content.sort(key=lambda t:(FIRST.index(t['code']) if t['code'] in FIRST else 100,t['code']))
  for t in content:
+  if STOP or (STATE.parent/'pause-production').exists():return False
   if ONLY and t['code'] not in ONLY:continue
   try:
    if submit(s,t):return True
