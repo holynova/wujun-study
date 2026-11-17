@@ -28,6 +28,17 @@ def env(profile):
    host=re.search(r'HTTPSProxy\s*:\s*(\S+)',out);port=re.search(r'HTTPSPort\s*:\s*(\d+)',out)
    if host and port:e['HTTPS_PROXY']=e['HTTP_PROXY']=f'http://{host[1]}:{port[1]}'
  return e
+def apply_rate_backoff(s,profile,kind,message):
+ account=s.setdefault('accounts',{}).setdefault(profile,{})
+ short=any(x in message.lower() for x in ['few minutes','1-2 minutes'])
+ delay=180 if short else 18000
+ if kind=='slides':
+  recent=[x for x in account.get('generation_rate_rejections',[]) if now()-x<3600]
+  recent.append(now());account['generation_rate_rejections']=recent
+  if len(recent)>=2:delay=18000
+  account['generation_cooldown_until']=max(account.get('generation_cooldown_until',0),now()+delay)
+  account['generation_hold_reason']='Repeated explicit generation rejections: local five-hour hold' if len(recent)>=2 else 'Explicit service rate limit'
+ else:account['cooldown_until']=max(account.get('cooldown_until',0),now()+delay)
 def cli(s,args,profile='default',as_json=True,timeout=120):
  delay=max(0,15-(now()-s.get('last_cli',0)))
  if delay:time.sleep(delay)
@@ -41,7 +52,7 @@ def cli(s,args,profile='default',as_json=True,timeout=120):
  stamp=str(int(now()));(ROOT/'state'/f'last-{args[0]}-{stamp}.txt').write_text(r.stdout+'\n'+r.stderr)
  if r.returncode:
   msg=(r.stderr+r.stdout)[-1500:]
-  if any(x in msg.lower() for x in ['429','resource_exhausted','rate limited']):s.setdefault('accounts',{}).setdefault(profile,{})['generation_cooldown_until' if args[0]=='slides' else 'cooldown_until']=now()+(180 if any(x in msg.lower() for x in ['few minutes','1-2 minutes']) else 18000);save(s)
+  if any(x in msg.lower() for x in ['429','resource_exhausted','rate limited']):apply_rate_backoff(s,profile,args[0],msg);save(s)
   raise RuntimeError(msg)
  if not as_json:return r.stdout
  try:return json.loads(r.stdout)

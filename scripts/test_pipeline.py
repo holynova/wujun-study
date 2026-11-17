@@ -23,4 +23,19 @@ class ProductionGuardTests(unittest.TestCase):
   s={'topics':{},'accounts':{'default':{'cooldown_until':p.now()+1000}}}
   with patch.object(p,'ensure_source',side_effect=AssertionError('cooldown ignored')):
    self.assertFalse(p.submit(s,{'code':'F01'}))
+ def test_repeated_generation_limits_stop_new_mutations_but_allow_reads(self):
+  s={}
+  with patch.object(p,'now',return_value=1000):
+   p.apply_rate_backoff(s,'account-b','slides','Rate limited, wait a few minutes')
+   self.assertEqual(s['accounts']['account-b']['generation_cooldown_until'],1180)
+  with patch.object(p,'now',return_value=1300):
+   p.apply_rate_backoff(s,'account-b','slides','Rate limited, wait a few minutes')
+   self.assertEqual(s['accounts']['account-b']['generation_cooldown_until'],19300)
+   self.assertNotIn('cooldown_until',s['accounts']['account-b'])
+   self.assertNotIn('default',s['accounts'])
+ def test_explicit_quota_limit_gets_five_hour_hold(self):
+  s={}
+  with patch.object(p,'now',return_value=1000):
+   p.apply_rate_backoff(s,'default','slides','429 RESOURCE_EXHAUSTED')
+   self.assertEqual(s['accounts']['default']['generation_cooldown_until'],19000)
 if __name__=='__main__':unittest.main()
