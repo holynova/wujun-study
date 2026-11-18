@@ -1,25 +1,25 @@
+<p align="right"><a href="README.en.md">English</a></p>
+
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="吴军 · 专题学习 Wu Jun Study — 14 门课程编排为 42 篇精读，17 份中文漫画图解共 255 页">
 </p>
 
 <p align="center">
-  <a href="https://xiaosang.cc/wujun-study/">▶ 在线阅读 Read Online</a>
+  <a href="https://xiaosang.cc/wujun-study/">▶ 在线阅读</a>
   ·
   <a href="https://github.com/holynova/wujun-study">GitHub 仓库</a>
 </p>
 
 吴军 · 专题学习把吴军 14 门课程按主题编排为 42 篇精读文章：每篇围绕一个核心问题展开，提炼关键概念，并附可追溯的课程出处（共 523 条来源）。另有 17 份中文清线漫画图解，每份 15 页、共 255 页，支持全屏阅读和 PDF 下载。双栏阅读布局，适配手机。
 
-Wu Jun Study is a thematic study guide to 14 Wu Jun courses, organized into 42 study articles: each one centers on a key question, distills the core concepts, and cites traceable course sources (523 references in total). It also includes 17 Chinese clear-line comic slide decks, 15 pages each (255 pages), with a fullscreen reader and PDF downloads. Responsive two-column reading layout, mobile-friendly.
-
-## 截图 / Screenshots
+## 截图
 
 <p align="center">
   <img src="./assets/screenshot.png" width="600" alt="网站首页：专题列表与双栏阅读布局">
   <img src="./assets/readme/screenshot-comic.jpg" width="600" alt="漫画图解：第一专题《财富的本质与自由现金流》第一页">
 </p>
 
-## 42 篇精读 · 10 个主题 / 42 Articles · 10 Themes
+## 42 篇精读 · 10 个主题
 
 | 主题 | 篇数 | 专题 |
 |------|------|------|
@@ -36,19 +36,19 @@ Wu Jun Study is a thematic study guide to 14 Wu Jun courses, organized into 42 s
 
 14 门课程：硅谷来信系列（硅谷来信、硅谷来信 2·谷歌方法论、硅谷来信 3）、吴军来信 1·世界文明史、吴军来信 2、财商训练 40 讲、数学通识 50 讲、信息论 40 讲、科技史纲 60 讲、教育的方法 50 讲、逻辑思维训练 50 讲、阅读与写作 50 讲、吴军讲 5G、关键时刻行动手册。
 
-## 漫画图解 / Comic Decks
+## 漫画图解
 
 - **17 份已完成**：每份 15 页，共 255 页；理财 6 个专题全部完成。
 - **全屏阅读 + PDF 下载**：每份图解都有对应的 PDF（如 `public/slides/ep-1.pdf`）。
 - **其余 25 份待生成**：来源与提纲已备好，受 NotebookLM 限流影响暂未完成。
 
-## 使用方式 / How to Use
+## 使用方式
 
 - **按主题浏览**：42 篇精读按 10 个主题分类，可按课程筛选。
 - **全文搜索**：搜索框检索全部精读内容（索引见 `public/search.json`）。
 - **来源追溯**：每篇精读标注引用的课程与来源条数，点击可查看出处。
 
-## 本地运行 / Run Locally
+## 本地运行
 
 ```sh
 npm ci
@@ -62,7 +62,7 @@ npm test        # node scripts/verify.mjs
 npm run build   # vite build + release 写入
 ```
 
-## 技术 / Tech
+## 技术
 
 - Vite 6 + 原生 JS（无框架），双栏阅读布局，移动端适配。
 - 数据驱动：42 篇精读各为一个 JSON（`src/data/topics/`，含问题、概念、课程、来源），索引在 `src/data/index.json`；漫画页为 WebP（`public/static/`，17 组 × 15 页），PDF 在 `public/slides/`。
@@ -81,16 +81,6 @@ scripts/                漫画管线（生成 / 审核 / 打包 / 校验）
 docs/production.md      生产流程说明
 ```
 
-## English
+## 声明
 
-**Wu Jun Study** is a thematic study guide to 14 Wu Jun courses, organized into 42 study articles across 10 themes — personal finance, civilization and history, education, technology, career and business, thinking and decision-making, philosophy of life, reading and expression, literature and aesthetics, and society and economics.
-
-- **42 articles**: each centers on a key question, distills the core concepts, and cites traceable course sources — 523 references in total.
-- **17 comic decks**: Chinese clear-line comic slide decks, 15 pages each (255 pages), with a fullscreen reader and PDF downloads. All six personal-finance topics are complete; the remaining 25 decks await generation (sources and outlines ready).
-- **Use it**: browse by theme, filter by course, full-text search across all articles, and trace every claim back to its course source.
-- **Run it**: `npm ci && npm run dev`. Verify: `npm test`. Build: `npm run build`.
-- **Tech**: Vite 6 + vanilla JavaScript, no framework; data-driven — one JSON per article in `src/data/topics/`, comic pages as WebP under `public/static/`, PDFs under `public/slides/`.
-
-## 声明 / Disclaimer
-
-本项目为选择性主题编排的学习笔记，不代表覆盖全部原课内容；原始课程、账号与生产状态不进入公开产物。A selective thematic study guide, not a complete transcription of the original courses.
+本项目为选择性主题编排的学习笔记，不代表覆盖全部原课内容；原始课程、账号与生产状态不进入公开产物。
