@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">吴军 · 专题学习 Wu Jun Study — 14 门课程编排为 42 篇精读，17 份中文漫画图解共 255 页</title>
+  <desc id="desc">深青墨底书卷风标题：吴军 · 专题学习；右侧是三张漫画小卡与一本摊开的书，代表精读文章与漫画图解。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#1c2a30"/>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#9db8b0">课程精读 · 漫画图解 · THEMATIC STUDY GUIDE</text>
+    <text x="56" y="128" font-size="62" font-weight="700" fill="#e8c97a">吴军 · 专题学习</text>
+    <text x="56" y="168" font-size="23" fill="#efe8da">WU JUN STUDY — 14 门课程，42 篇精读，17 份漫画图解</text>
+    <text x="56" y="204" font-size="19" fill="#9db8b0">按主题编排，来源可追溯，支持课程筛选与全文搜索。</text>
+    <g id="chips" font-size="18" fill="#efe8da" text-anchor="middle">
+      <g><rect x="56" y="238" width="126" height="36" rx="18" fill="#27383e" stroke="#3e5a60" stroke-width="1.5"/><text x="119" y="262">42 篇精读</text></g>
+      <g><rect x="194" y="238" width="126" height="36" rx="18" fill="#27383e" stroke="#3e5a60" stroke-width="1.5"/><text x="257" y="262">14 门课程</text></g>
+      <g><rect x="332" y="238" width="144" height="36" rx="18" fill="#27383e" stroke="#3e5a60" stroke-width="1.5"/><text x="404" y="262">255 页漫画</text></g>
+      <g><rect x="488" y="238" width="144" height="36" rx="18" fill="#27383e" stroke="#3e5a60" stroke-width="1.5"/><text x="560" y="262">523 条来源</text></g>
+    </g>
+  </g>
+
+  <g id="book-comics" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <!-- three comic panels -->
+    <g id="panel-finance">
+      <rect x="756" y="52" width="124" height="92" rx="8" fill="#f5e3c8"/>
+      <g>
+        <circle cx="790" cy="96" r="14" fill="#d4a94e" stroke="#8a6a2f" stroke-width="2"/>
+        <circle cx="790" cy="96" r="7" fill="none" stroke="#8a6a2f" stroke-width="2"/>
+        <rect x="818" y="112" width="12" height="20" fill="#2f5d50"/>
+        <rect x="834" y="100" width="12" height="32" fill="#3e7a68"/>
+        <rect x="850" y="88" width="12" height="44" fill="#2f5d50"/>
+      </g>
+      <rect x="756" y="150" width="124" height="30" fill="#1c2a30"/><text x="818" y="172" font-size="18" fill="#efe8da" text-anchor="middle">财富理财</text>
+    </g>
+    <g id="panel-history">
+      <rect x="896" y="52" width="124" height="92" rx="8" fill="#d0dcea"/>
+      <g>
+        <polygon points="958,76 988,102 928,102" fill="#7a8a9a"/>
+        <rect x="936" y="104" width="8" height="22" fill="#5a6a7a"/>
+        <rect x="954" y="104" width="8" height="22" fill="#5a6a7a"/>
+        <rect x="972" y="104" width="8" height="22" fill="#5a6a7a"/>
+        <rect x="928" y="126" width="60" height="6" fill="#5a6a7a"/>
+      </g>
+      <rect x="896" y="150" width="124" height="30" fill="#1c2a30"/><text x="958" y="172" font-size="18" fill="#efe8da" text-anchor="middle">文明历史</text>
+    </g>
+    <g id="panel-thinking">
+      <rect x="1036" y="52" width="124" height="92" rx="8" fill="#d8e8d8"/>
+      <g>
+        <circle cx="1098" cy="98" r="16" fill="#e8c97a" stroke="#8a6a2f" stroke-width="2"/>
+        <path d="M1098 74 L1098 66 M1078 84 L1072 78 M1118 84 L1124 78 M1082 106 L1074 110 M1114 106 L1122 110" stroke="#8a6a2f" stroke-width="3" stroke-linecap="round"/>
+        <rect x="1092" y="114" width="12" height="14" fill="#5d7f52"/>
+      </g>
+      <rect x="1036" y="150" width="124" height="30" fill="#1c2a30"/><text x="1098" y="172" font-size="18" fill="#efe8da" text-anchor="middle">思考决策</text>
+    </g>
+    <!-- open book -->
+    <g id="open-book">
+      <polygon points="758,232 958,206 958,306 758,332" fill="#efe8da"/>
+      <polygon points="958,206 1158,232 1158,332 958,306" fill="#e0d8c8"/>
+      <g stroke="#8a8272" stroke-width="3" stroke-linecap="round">
+        <line x1="784" y1="252" x2="932" y2="236"/>
+        <line x1="784" y1="272" x2="932" y2="256"/>
+        <line x1="784" y1="292" x2="900" y2="280"/>
+        <line x1="984" y1="236" x2="1132" y2="252"/>
+        <line x1="984" y1="256" x2="1132" y2="272"/>
+        <line x1="1016" y1="280" x2="1132" y2="292"/>
+      </g>
+      <line x1="958" y1="206" x2="958" y2="306" stroke="#b8b0a0" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
