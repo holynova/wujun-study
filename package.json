@@ -8,8 +8,7 @@
     "build": "node scripts/prepare_chunks.mjs && vite build && node scripts/write_release.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node scripts/verify.mjs",
-    "deploy:check": "node scripts/deploy_portfolio.mjs --dry-run",
-    "deploy": "npm run build && node scripts/deploy_portfolio.mjs"
+    "deploy:check": "npm test && node scripts/verify_dist.mjs"
   },
   "devDependencies": {
     "vite": "6.4.6",

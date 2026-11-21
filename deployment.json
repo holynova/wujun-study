@@ -1,8 +1,8 @@
 {
-  "worker": "xiaosang-portfolio",
-  "url": "https://xiaosang.cc/wujun-study/",
-  "base": "/wujun-study/",
-  "portfolioRepository": "https://github.com/holynova/holynova.github.io",
-  "portfolioBranch": "master",
-  "mountManifest": "data/mounted-projects.json"
+  "platform": "cloudflare-pages",
+  "project": "wujun-study",
+  "branch": "main",
+  "url": "https://wujun-study.xiaosang.cc/",
+  "build": "npm run build && npm run deploy:check",
+  "output": "dist"
 }

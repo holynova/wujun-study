@@ -15,7 +15,7 @@ npm test
 npm run dev
 ```
 
-正式网站挂载在 xiaosang.cc/wujun-study/，由作品集 xiaosang-portfolio Worker 统一部署；原 Sites 私有预览保留。部署只包含 `dist/`；源码仓库中的 `src/data/topics/` 保存脱敏后的精读内容，支持干净检出重建。
+独立站使用 Cloudflare Pages，生产分支为 main，域名为 wujun-study.xiaosang.cc。Git 推送后运行 npm run build 和 npm run deploy:check。部署只包含 `dist/`；源码仓库中的 `src/data/topics/` 保存脱敏后的精读内容，支持干净检出重建。
 
 ## 内容与来源
 
