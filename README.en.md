@@ -84,3 +84,7 @@ docs/production.md      Production workflow notes
 ## Disclaimer
 
 A selective thematic study guide, not a complete transcription of the original courses. Original course content, accounts, and production status are not part of the public output.
+
+Cloudflare Pages builds `dist/` when changes are pushed to `main` (`git push origin main`).
+
+<a href="https://wujun-study.xiaosang.cc/"><img src="assets/readme/qr.png" width="112" alt="Scan to open the site"></a>

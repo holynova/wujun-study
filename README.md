@@ -84,3 +84,7 @@ docs/production.md      生产流程说明
 ## 声明
 
 本项目为选择性主题编排的学习笔记，不代表覆盖全部原课内容；原始课程、账号与生产状态不进入公开产物。
+
+运行 `git push origin main`，Cloudflare Pages 会构建并发布 `dist/`。
+
+<a href="https://wujun-study.xiaosang.cc/"><img src="assets/readme/qr.png" width="112" alt="扫码打开网站"></a>
