@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://xiaosang.cc/wujun-study/">▶ Read Online</a>
+  <a href="https://wujun-study.xiaosang.cc/">▶ Read Online</a>
   ·
   <a href="https://github.com/holynova/wujun-study">GitHub Repository</a>
 </p>
